@@ -20,7 +20,7 @@ as roles of a given organization
     ``mvn clean install``\
     ``mvn spring-boot:run``
     
-Intellij Idea can be used to build and run the API
+<i class="fab fa-gitlab fa-fw" style="color:rgb(252,109,38); font-size:.85em" aria-hidden="true"></i> Intellij Idea can be used to build and run the API
 
 ## Swagger Documentation
 
