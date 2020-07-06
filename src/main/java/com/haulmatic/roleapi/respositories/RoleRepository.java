@@ -12,4 +12,6 @@ public interface RoleRepository extends MongoRepository<Role, String> {
     public Role findByNic(String nic);
 
     public List<Role> findAllByOrganizationAndRoleType(String Organization, RoleType roleType);
+
+    public Role deleteByNic(String nic);
 }
