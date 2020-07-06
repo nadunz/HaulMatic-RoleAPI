@@ -42,13 +42,15 @@ public class RoleService implements IRoleService {
     @Override
     public Role createRole(Role role) throws Exception {
 
+        if (role.getRoleType() == null) {
+            throw new UnavailableRoleTypeException("Given role type is unavailable");
+        }
+
         // Check whether one of attribute in the role variable is empty
         if (validator.isEmpty(role)) {
             throw new DataValidationException("Empty values in role");
         }
-        if (!validator.isAvailableRoleType(role.getRoleType().toString())) {
-            throw new UnavailableRoleTypeException("Given role type is unavailable");
-        }
+
         Optional<Role> foundRole = Optional.ofNullable(roleRepository.findByNic(role.getNic()));
         if (foundRole.isPresent()) {
             throw new NICAlreadyExistsException("NIC number already exists");
