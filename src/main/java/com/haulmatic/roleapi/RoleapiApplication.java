@@ -26,4 +26,5 @@ public class RoleAPIApplication {
                         .description("Haulmatic REST API Documentation for Roles")
                         .build());
     }
+
 }
