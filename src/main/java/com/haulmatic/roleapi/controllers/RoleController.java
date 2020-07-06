@@ -1,12 +1,12 @@
 package com.haulmatic.roleapi.controllers;
 
+import com.haulmatic.roleapi.enums.RoleType;
 import com.haulmatic.roleapi.models.Role;
 import com.haulmatic.roleapi.models.RoleSearch;
 import com.haulmatic.roleapi.models.responses.Response;
 import com.haulmatic.roleapi.services.IRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import com.haulmatic.roleapi.enums.RoleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -88,7 +88,7 @@ public class RoleController {
     @GetMapping("/search")
     @ApiOperation(value = "Get list of roles by name of organization and role type", produces = "application/json")
     public Response<List<RoleSearch>> searchRolesByOrgAndRoleType(@RequestParam(value = "organization") String organization,
-                                                            @RequestParam(value = "roletype") RoleType roleType) throws Exception {
+                                                                  @RequestParam(value = "roletype") RoleType roleType) throws Exception {
         return new Response<>(iRoleService.searchRolesByOrganizationAndRoleType(organization, roleType), HttpStatus.OK);
     }
 

@@ -1,16 +1,16 @@
 package com.haulmatic.roleapi.services;
 
+import com.haulmatic.roleapi.enums.RoleType;
+import com.haulmatic.roleapi.exceptions.DataValidationException;
 import com.haulmatic.roleapi.exceptions.NICAlreadyExistsException;
 import com.haulmatic.roleapi.exceptions.ResourceNotFoundException;
 import com.haulmatic.roleapi.exceptions.UnavailableRoleTypeException;
 import com.haulmatic.roleapi.helper.Validator;
 import com.haulmatic.roleapi.models.Role;
 import com.haulmatic.roleapi.models.RoleSearch;
+import com.haulmatic.roleapi.respositories.RoleRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import com.haulmatic.roleapi.enums.RoleType;
-import com.haulmatic.roleapi.exceptions.DataValidationException;
-import com.haulmatic.roleapi.respositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -68,7 +68,7 @@ public class RoleService implements IRoleService {
             throw new DataValidationException("Empty role Id");
         }
         Optional<Role> foundRole = roleRepository.findById(id);
-        if(foundRole.isPresent()) {
+        if (foundRole.isPresent()) {
             return foundRole.get();
         } else {
             throw new ResourceNotFoundException("Role Id doesn't exists");
@@ -85,7 +85,7 @@ public class RoleService implements IRoleService {
             throw new DataValidationException("Invalid NIC number");
         }
         Optional<Role> foundRole = Optional.ofNullable(roleRepository.findByNic(nic));
-        if(foundRole.isPresent()) {
+        if (foundRole.isPresent()) {
             return foundRole.get();
         } else {
             throw new ResourceNotFoundException("Role NIC doesn't exists");
@@ -129,7 +129,7 @@ public class RoleService implements IRoleService {
         }
 
         Optional<Role> foundRole = roleRepository.findById(id);
-        foundRole.ifPresent( r -> {
+        foundRole.ifPresent(r -> {
             roleRepository.delete(r);
         });
         foundRole.orElseThrow(() -> new ResourceNotFoundException("Role Id doesn't exists"));
@@ -171,10 +171,10 @@ public class RoleService implements IRoleService {
             throw new DataValidationException("Invalid NIC number");
         }
         Optional<Role> foundRole = Optional.ofNullable(roleRepository.findByNic(nic));
-        foundRole.ifPresent( r -> {
+        foundRole.ifPresent(r -> {
             roleRepository.delete(r);
         });
-        foundRole.orElseThrow(()-> new ResourceNotFoundException("Role NIC doesn't exists"));
+        foundRole.orElseThrow(() -> new ResourceNotFoundException("Role NIC doesn't exists"));
         return foundRole.get();
     }
 

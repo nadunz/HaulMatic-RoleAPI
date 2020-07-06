@@ -22,7 +22,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -141,7 +140,6 @@ public class RoleAPICRUDTest {
         Optional<Role> actualRole = Optional.ofNullable(roleRepository.findByNic(role.getNic()));
         assertEquals(Optional.empty(), actualRole);
     }
-
 
 
     @Test

@@ -12,11 +12,12 @@ public class Validator {
 
     /**
      * This method checks whether the given NIC is in valid format
+     *
      * @param nic the provided nic number
      * @return true if valid, otherwise false
      */
     public boolean isValidNIC(String nic) {
-        if(!nic.isEmpty() && nic.length() == 10) {
+        if (!nic.isEmpty() && nic.length() == 10) {
             Pattern p = Pattern.compile("[0-9]{9}[vV]");
             Matcher m = p.matcher(nic);
             return m.find();
@@ -31,6 +32,7 @@ public class Validator {
 
     /**
      * This method checks whether one of given role attributes are empty or not
+     *
      * @return true if all attribute values are not empty, otherwise false
      */
     public boolean isEmpty(Role role) {

@@ -1,12 +1,10 @@
 package com.haulmatic.roleapi.models.responses;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.haulmatic.roleapi.exceptions.ResourceNotFoundException;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
-import java.util.List;
 
 @Data
 @ApiModel

@@ -1,7 +1,7 @@
 package com.haulmatic.roleapi.services;
 
-import com.haulmatic.roleapi.models.Role;
 import com.haulmatic.roleapi.enums.RoleType;
+import com.haulmatic.roleapi.models.Role;
 import com.haulmatic.roleapi.models.RoleSearch;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,9 +1,9 @@
 package com.haulmatic.roleapi.exceptions.handler;
 
+import com.haulmatic.roleapi.exceptions.DataValidationException;
 import com.haulmatic.roleapi.exceptions.NICAlreadyExistsException;
 import com.haulmatic.roleapi.exceptions.ResourceNotFoundException;
 import com.haulmatic.roleapi.exceptions.UnavailableRoleTypeException;
-import com.haulmatic.roleapi.exceptions.DataValidationException;
 import com.haulmatic.roleapi.models.responses.ApiError;
 import com.mongodb.MongoException;
 import org.springframework.http.HttpStatus;

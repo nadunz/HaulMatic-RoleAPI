@@ -1,16 +1,15 @@
 package com.haulmatic.roleapi.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.haulmatic.roleapi.enums.RoleType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.haulmatic.roleapi.enums.RoleType;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -52,14 +51,15 @@ public class Role {
 
     /**
      * This method returns a simple string format of this role instance
+     *
      * @return string of this role
      */
     @Override
     public String toString() {
         return String.format("Role " +
-                "[id = %s, firstName = '%s', lastName = '%s', " +
-                "organization = '%s', nic = '%s', roleType = '%s', " +
-                "createdDate = '%s' lastModifiedDate = '%s']",
+                        "[id = %s, firstName = '%s', lastName = '%s', " +
+                        "organization = '%s', nic = '%s', roleType = '%s', " +
+                        "createdDate = '%s' lastModifiedDate = '%s']",
                 id, firstName, lastName, organization, nic,
                 roleType, createdDate, lastModifiedDate);
     }
